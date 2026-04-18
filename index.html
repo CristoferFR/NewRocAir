@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="icon" href="img/logo.SF.png" type="image/png">
+    <title>New Roc Air</title>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="logo" href="index.html">
+                <img src="img/logo.SF.png" alt="New Roc Air logo" width="36" height="36">
+                <span>New Roc Air</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" type="button" aria-label="Abrir menú" aria-controls="siteNav" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav id="siteNav" class="main-nav" aria-label="Menú principal">
+                <div class="nav-item dropdown">
+                    <button class="dropdown-toggle" aria-expanded="false" aria-haspopup="true">Servicios ▾</button>
+                    <ul class="dropdown-menu" role="menu" aria-label="Submenu servicios">
+                        <li role="none"><a role="menuitem" href="#servicios" class="dropdown-link">Instalación</a></li>
+                        <li role="none"><a role="menuitem" href="#servicios" class="dropdown-link">Reparación</a></li>
+                        <li role="none"><a role="menuitem" href="#servicios" class="dropdown-link">Mantenimiento</a></li>
+                        <li role="none"><a role="menuitem" href="#servicios" class="dropdown-link">Consultoría</a></li>
+                    </ul>
+                </div>
+                <a href="#about">Quiénes somos</a>
+                <a href="#contact">Contacto</a>
+            </nav>
+        </div>
+    </header>
+    <div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-inner">
+                <div class="hero-copy">
+                    <h1>Confort todo el año — Instalación, reparación y mantenimiento HVAC</h1>
+                    <p>Soluciones profesionales para hogares y empresas. Atendemos emergencia 24/7 y planes de mantenimiento preventivo.</p>
+                    <a class="btn primary" href="#contact">Solicitar presupuesto</a>
+                </div>
+                <div class="hero-visual" aria-hidden="true">
+                    <div class="hvac-illustration">
+                        <img src="img/fotoinicio.jpg" alt="Ilustración HVAC">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección: Manuales HVAC -->
+        <section id="manuales" class="manuales">
+            <div class="container">
+                <h2>Manuales HVAC</h2>
+                <div class="manual-card">
+                    <div class="manual-carousel" aria-label="Carrusel de manuales">
+                        <button class="carousel-btn prev" aria-label="Anterior">‹</button>
+                        <div class="carousel-viewport">
+                            <div class="carousel-track">
+                                <div class="slide">
+                                    <div class="slide-visual">
+                                        <img src="img/servicios2.jpg" alt="Manual HVAC A">
+                                    </div>
+                                    <div class="slide-meta" hidden>
+                                        <h3>Manual HVAC A</h3>
+                                        <p>Guía completa de instalación y puesta en marcha para unidades residenciales.</p>
+                                        <ul>
+                                            <li>Esquemas eléctricos</li>
+                                            <li>Lista de comprobación de instalación</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="slide">
+                                    <div class="slide-visual">
+                                        <img src="img/servicios1.jpg" alt="Manual HVAC B">
+                                    </div>
+                                    <div class="slide-meta" hidden>
+                                        <h3>Manual HVAC B</h3>
+                                        <p>Mantenimiento regular y recomendaciones para optimizar rendimiento.</p>
+                                        <ul>
+                                            <li>Frecuencias de mantenimiento</li>
+                                            <li>Procedimientos de limpieza</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="slide">
+                                    <div class="slide-visual">
+                                        <img src="img/servicios3.jpg" alt="Manual HVAC C">
+                                    </div>
+                                    <div class="slide-meta" hidden>
+                                        <h3>Manual HVAC C</h3>
+                                        <p>Resolución de fallas y diagnóstico rápido de errores comunes.</p>
+                                        <ul>
+                                            <li>Códigos de error frecuentes</li>
+                                            <li>Soluciones paso a paso</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-btn next" aria-label="Siguiente">›</button>
+                        <div class="carousel-dots" role="tablist" aria-hidden="false"></div>
+                    </div>
+
+                    <div class="manual-text">
+                        <h3>Guías y manuales técnicos</h3>
+                        <p>Descarga y consulta manuales de instalación, mantenimiento y diagnóstico para equipos HVAC. Cada manual incluye diagramas, procedimientos de seguridad y tablas de rendimiento.</p>
+                        <ul>
+                            <li><strong>Instalación:</strong> pasos y especificaciones de montaje.</li>
+                            <li><strong>Mantenimiento:</strong> listas de verificación y frecuencias recomendadas.</li>
+                            <li><strong>Resolución de fallas:</strong> errores comunes y soluciones rápidas.</li>
+                        </ul>
+                        <a class="btn" href="#" role="button">Ver todos los manuales</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="servicios" class="services">
+            <div class="container">
+                <h2>Nuestros servicios</h2>
+                <div class="services-grid">
+                    <article class="card">
+                        <div class="card-media">
+                            <img src="img/servicios1.jpg" alt="Instalación de sistemas">
+                        </div>
+                        <div class="card-body">
+                            <h3>Instalación de sistemas</h3>
+                            <p>Instalamos equipos residenciales y comerciales con garantía y certificación técnica.</p>
+                            <a class="btn view-more" href="#contact">Ver más</a>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-media">
+                            <img src="img/servicios2.jpg" alt="Reparación y emergencia">
+                        </div>
+                        <div class="card-body">
+                            <h3>Reparación y emergencia</h3>
+                            <p>Diagnóstico rápido y reparaciones efectivas. Soporte 24/7 para fallas críticas.</p>
+                            <a class="btn view-more" href="#contact">Ver más</a>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-media">
+                            <img src="img/servicios3.jpg" alt="Mantenimiento preventivo">
+                        </div>
+                        <div class="card-body">
+                            <h3>Mantenimiento preventivo</h3>
+                            <p>Planes anuales para mejorar eficiencia, prolongar la vida útil y reducir consumo energético.</p>
+                            <a class="btn view-more" href="#contact">Ver más</a>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-media">
+                            <img src="img/obrero1.jpg" alt="Consultoría energética">
+                        </div>
+                        <div class="card-body">
+                            <h3>Consultoría energética</h3>
+                            <p>Asesoría para seleccionar equipos eficientes y optimizar costos operativos.</p>
+                            <a class="btn view-more" href="#contact">Ver más</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <h2>Acerca de New Roc Air</h2>
+                <p>Somos un equipo con años de experiencia en climatización. Prioritamos seguridad, cumplimiento normativo y atención al cliente.</p>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container contact-inner">
+                <div class="contact-form">
+                    <h2>Contacto / Solicitar presupuesto</h2>
+                    <form id="contactForm" action="https://formsubmit.co/edmundodraftsman@gmail.com" method="POST">
+                        <input type="hidden" name="_subject" value="Nuevo mensaje desde New Roc Air">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_template" value="table">
+                        <label for="name">Nombre</label>
+                        <input id="name" name="name" type="text" required>
+
+                        <label for="email">Correo electrónico</label>
+                        <input id="email" name="email" type="email" required>
+
+                        <label for="phone">Teléfono</label>
+                        <input id="phone" name="phone" type="tel">
+
+                        <label for="message">Mensaje / detalles</label>
+                        <textarea id="message" name="message" rows="4" required></textarea>
+
+                        <button class="btn primary" type="submit">Enviar mensaje</button>
+                    </form>
+                </div>
+                <aside class="location-panel" aria-label="Ubicación de New Roc Air">
+                    <h3>Ubicación</h3>
+                    <p class="location-text">Atendemos en la ciudad y zonas cercanas con cobertura residencial y comercial.</p>
+                    <ul class="location-list">
+                        <li><strong>Dirección:</strong> 1250 Main St, New Rochelle, NY</li>
+                        <li><strong>Horario:</strong> Lunes a Sábado, 8:00 AM - 7:00 PM</li>
+                        <li><strong>Emergencias:</strong> Atención 24/7</li>
+                    </ul>
+                    <a class="btn primary" href="https://maps.google.com/?q=1250+Main+St,+New+Rochelle,+NY" target="_blank" rel="noopener noreferrer">Ver en mapa</a>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <div class="floating-note" id="ductosPopup" role="dialog" aria-label="Aviso de servicio HVAC">
+        <div class="floating-note-media">
+            <img class="floating-note-image" src="img/obrero1.jpg" alt="Diseño de ductos HVAC">
+        </div>
+        <button class="floating-note-close" id="ductosPopupClose" type="button" aria-label="Cerrar aviso">×</button>
+        <div class="floating-note-content">
+            <p class="floating-note-title">Manuales HVAC Certificados</p>
+            <span class="floating-note-badge">Certificación en manuales HVAC para profesionales del sector y estudiantes.</span>
+            <a class="floating-note-link" href="#contact">Solicitar información</a>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h3>Contacto</h3>
+                <p><a href="tel:+123456789">+1 234 567 89</a></p>
+                <p><a href="mailto:info@newrocair.com">info@newrocair.com</a></p>
+                <p>Atención 24/7</p>
+            </div>
+            <div class="footer-col">
+                <h3>Información</h3>
+                <p><a href="#about">Quiénes somos</a></p>
+                <p><a href="#manuales">Manuales HVAC</a></p>
+                <p><a href="#contact">Solicitar presupuesto</a></p>
+            </div>
+            <div class="footer-col">
+                <h3>Servicios</h3>
+                <p><a href="#servicios">Instalación</a></p>
+                <p><a href="#servicios">Reparación</a></p>
+                <p><a href="#servicios">Mantenimiento</a></p>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>© <span id="year"></span> New Roc Air — Servicios HVAC. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Modal para mostrar la card ampliada -->
+    <div id="cardModal" class="card-modal" aria-hidden="true">
+        <div class="card-modal-backdrop" data-action="close" tabindex="-1"></div>
+        <div class="card-modal-container" role="dialog" aria-modal="true" aria-labelledby="cardModalTitle">
+            <button class="card-modal-close" aria-label="Cerrar">×</button>
+            <div class="card-modal-inner" id="cardModalInner" aria-live="polite"></div>
+        </div>
+    </div>
+
+    <script src="js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,406 @@
+/* Reset básico */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:Inter,Segoe UI,Roboto,Arial, sans-serif;line-height:1.5;color:#1f2937;display:flex;flex-direction:column;min-height:100vh;background-image:linear-gradient(rgba(0, 0, 0, 0.623),rgba(0, 0, 0, 0.63)), url("../img/obrero1.jpg");background-size:cover;background-position:center;background-repeat:no-repeat;background-attachment:fixed}
+main{display:flex;flex-direction:column;flex:1 0 auto}
+
+:root{
+	--accent:#0D3B56;
+	--secondary:#FF728E;
+	--tertiary:#29B6F6;
+	--muted:#5f6f7c;
+	--bg:#ffffff;
+	--radius:10px;
+	--container:1100px;
+	--header-height:64px; /* altura usada para header fijo */
+}
+
+.container{width:90%;max-width:var(--container);margin:0 auto}
+
+.site-header{position:fixed;top:0;left:0;right:0;height:var(--header-height);z-index:1000;box-shadow:0 6px 18px rgba(13,59,86,0.22);background:linear-gradient(90deg,#0D3B56 0%, #13587f 58%, #29B6F6 100%);transition:background 300ms ease}
+.site-header::before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(120deg,rgba(255,255,255,0.02),rgba(255,255,255,0));mix-blend-mode:overlay}
+.header-inner{display:flex;align-items:center;justify-content:flex-start;padding:12px 0;position:relative;height:100%}
+.nav-backdrop{display:none}
+.logo{display:flex;gap:10px;align-items:center;color:#ffffff;font-weight:700;text-decoration:none}
+.logo span{color:#e6f0ff}
+.logo img{width:36px;height:36px;object-fit:cover;border-radius:6px;background:rgba(255,255,255,0.06);display:block}
+.nav-toggle{display:none;align-items:center;justify-content:center;flex-direction:column;gap:5px;width:44px;height:44px;border:0;border-radius:10px;background:rgba(255,255,255,0.12);cursor:pointer}
+.nav-toggle .bar{display:block;width:22px;height:2px;background:#ffffff;transition:transform 180ms ease,opacity 180ms ease}
+.nav-toggle[aria-expanded="true"] .bar:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-toggle[aria-expanded="true"] .bar:nth-child(2){opacity:0}
+.nav-toggle[aria-expanded="true"] .bar:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.main-nav{display:flex;align-items:center;position:absolute;right:0;top:50%;transform:translateY(-50%);gap:8px;padding-right:8px}
+.main-nav a{color:#e6f0ff;text-decoration:none;padding:8px 12px;border-radius:8px;position:relative;transition:color 180ms ease,box-shadow 200ms ease}
+
+/* Dropdown */
+.nav-item{position:relative}
+.dropdown-toggle{background:transparent;border:0;color:#e6f0ff;padding:8px 12px;border-radius:8px;cursor:pointer;font-weight:600;transition:background 180ms ease,color 180ms ease}
+.dropdown-toggle:hover{background:rgba(255,255,255,0.08);color:#ffffff}
+.dropdown-toggle:focus{outline:2px solid rgba(41,182,246,0.28);outline-offset:2px}
+.dropdown-menu{position:absolute;right:0;top:calc(100% + 8px);min-width:220px;background:#ffffff;border:1px solid rgba(41,182,246,0.22);border-radius:12px;box-shadow:0 18px 40px rgba(13,59,86,0.18);padding:8px;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity 200ms ease,transform 200ms ease,visibility 200ms;z-index:1200}
+.dropdown.open .dropdown-menu,.dropdown:hover .dropdown-menu{opacity:1;visibility:visible;transform:translateY(0)}
+.dropdown-menu li{list-style:none}
+.main-nav .dropdown-menu a,
+.dropdown-link{display:block;padding:10px 12px;color:#0D3B56;text-decoration:none;border-radius:8px;font-weight:600;transition:background 150ms ease,color 150ms ease}
+.main-nav .dropdown-menu a:hover,
+.main-nav .dropdown-menu a:focus,
+.dropdown-link:hover,.dropdown-link:focus{background:linear-gradient(90deg,#eefaff,#fff1f5);color:#0D3B56}
+.main-nav a:hover{color:#ffffff;box-shadow:0 10px 30px rgba(41,182,246,0.18)}
+.main-nav a::after{content:"";position:absolute;left:12px;right:12px;bottom:6px;height:2px;background:linear-gradient(90deg,rgba(255,255,255,0.9),rgba(255,255,255,0.4));transform:scaleX(0);transform-origin:left center;transition:transform 220ms cubic-bezier(.2,.8,.2,1)}
+.main-nav a:hover::after{transform:scaleX(1)}
+.main-nav .dropdown-menu a:hover{transform:none;box-shadow:none}
+.main-nav .dropdown-menu a::after{display:none}
+
+/* pequeño brillo al pasar el mouse por todo el header */
+.site-header:hover::before{opacity:1}
+
+
+/* Hero */
+.hero{padding:48px 0;background:linear-gradient(180deg,#eef9ff 0%, #fff8fb 100%)}
+.hero-inner{display:flex;flex-wrap:wrap;gap:28px;align-items:center}
+.hero-copy{flex:1 1 520px}
+.hero-visual{flex:0 1 320px;width:100%}
+.hero-copy h1{font-size:clamp(1.5rem,2.5vw,2.25rem);margin-bottom:10px;color:var(--accent)}
+.hero-copy p{color:var(--muted);margin-bottom:18px}
+.hvac-illustration{height:auto;border-radius:0;overflow:visible;box-shadow:none;background:transparent}
+.hvac-illustration img{width:100%;height:auto;display:block;max-width:100%;opacity:1}
+
+.btn{display:inline-block;padding:10px 18px;border-radius:8px;text-decoration:none;border:0;cursor:pointer}
+.btn.primary{background:linear-gradient(135deg,var(--secondary),#ff8ea4);color:#fff;box-shadow:0 10px 24px rgba(255,114,142,0.24)}
+
+/* Services */
+.services{padding:40px 0}
+.services h2{margin-bottom:18px;color:var(--accent)}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;align-items:stretch}
+.services-grid .card{display:flex;flex-direction:column;padding:0;border-radius:12px;overflow:hidden;align-items:stretch;height:340px;background:var(--bg);box-shadow:0 8px 24px rgba(15,23,42,0.06);border-top:4px solid var(--tertiary);transition:transform 220ms ease,box-shadow 220ms ease,opacity 220ms ease,filter 220ms ease;will-change:transform,opacity}
+
+/* Estilos para carrusel de servicios */
+.services-carousel{position:relative;padding:12px 0}
+.services-carousel .carousel-viewport{overflow:hidden;border-radius:12px}
+.services-carousel .carousel-track{display:flex;transition:transform 420ms cubic-bezier(.22,.9,.2,1)}
+.services-carousel .slide{min-width:320px;padding:12px;display:flex;align-items:stretch}
+.services-carousel .slide .card{flex:1 1 auto}
+.services-carousel .card{
+	/* Mantener por compatibilidad si el carousel sigue existiendo en otro contexto */
+	display:flex;
+	flex-direction:column;
+	justify-content:flex-start;
+	align-items:stretch;
+	height:100%;
+	min-height:220px;
+	padding:0;
+	background:var(--bg);
+	border-radius:12px;
+	box-shadow:0 6px 18px rgba(15,23,42,0.06);
+	border-top:4px solid var(--tertiary);
+	color:inherit;
+}
+/* Si alguna card tenía la variante glass, la normalizamos dentro del carrusel */
+.services-carousel .card.card--glass{
+	background:var(--bg) !important;
+	box-shadow:0 6px 18px rgba(15,23,42,0.06) !important;
+	border-top:4px solid var(--tertiary) !important;
+	color:inherit !important;
+	text-shadow:none !important;
+}
+.services-carousel .card-media{height:140px;overflow:hidden;border-radius:12px 12px 0 0}
+.services-carousel .card-media img{width:100%;height:100%;display:block;object-fit:cover}
+.services-carousel .card-body{padding:14px 16px;display:flex;flex-direction:column;flex:1}
+
+/* Reglas para mural: asegurar tamaño fijo tipo carnet */
+.services-grid .card-media{flex:0 0 160px;height:160px;overflow:hidden}
+.services-grid .card-media img{width:100%;height:100%;object-fit:cover;display:block}
+.services-grid .card-body{padding:16px;display:flex;flex-direction:column;flex:1;justify-content:space-between}
+.services-grid .card-body h3{margin:0 0 8px;color:var(--accent);font-size:1.05rem}
+.services-grid .card-body p{margin:0;color:var(--muted);font-size:0.95rem;overflow:hidden;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical}
+.services-grid .btn.view-more{margin-top:12px;align-self:flex-start}
+
+/* Estilo mejorado para botón 'Ver más' */
+.btn.view-more{
+	display:inline-flex;
+ 	align-items:center;
+ 	gap:8px;
+ 	padding:10px 16px;
+ 	border-radius:999px;
+ 	font-weight:700;
+ 	font-size:0.95rem;
+ 	text-decoration:none;
+ 	border:0;
+ 	color:#fff;
+ 	background:linear-gradient(90deg,var(--secondary),#ff8ea4);
+ 	box-shadow:0 10px 28px rgba(255,114,142,0.18);
+ 	transition:transform 180ms ease,box-shadow 180ms ease,opacity 160ms ease,filter 160ms ease;
+}
+.btn.view-more:hover{
+ 	transform:translateY(-4px) scale(1.02);
+ 	box-shadow:0 18px 40px rgba(255,114,142,0.22);
+ 	filter:brightness(1.02);
+}
+.btn.view-more:active{transform:translateY(0) scale(0.995)}
+.btn.view-more:focus{outline:3px solid rgba(255,114,142,0.18);outline-offset:4px}
+
+@media (max-width:480px){
+ 	.btn.view-more{padding:8px 12px;font-size:0.9rem}
+}
+
+/* Efecto: cuando se hace hover sobre una card, las demás se atenúan */
+.services-grid{position:relative}
+    /* Asegurar que la imagen del hero sea visible en móvil */
+    .hvac-illustration{display:block}
+    .hvac-illustration img{display:block;opacity:1;height:auto}
+.services-grid:hover .card:not(:hover){
+	/* Reducida la transparencia para que las cards atenuadas sean menos fuertes */
+	opacity:0.65;
+	transform:none; /* evitar que las no-hover cambien de posición */
+	filter:grayscale(2%);
+}
+.services-grid .card:hover{
+    transform:translateY(-8px) scale(1.02);
+    box-shadow:0 22px 50px rgba(2,6,23,0.14);
+    z-index:6;
+    opacity:1;
+}
+.services-carousel .card h3{color:var(--accent);margin-bottom:8px}
+.services-carousel .card p{color:var(--muted);font-size:0.95rem;margin:0}
+.services-carousel .card-link{display:block;height:100%;color:inherit}
+.services-carousel .btn.view-more{margin-top:12px;align-self:flex-start;background:linear-gradient(135deg,var(--secondary),#ff8ea4);color:#fff;padding:8px 12px;border-radius:8px;text-decoration:none}
+@media (max-width:900px){
+	.services-carousel .card-media{height:180px}
+}
+.services-carousel .carousel-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:20;width:44px;height:44px;border-radius:10px;border:0;background:rgba(255,255,255,0.85);color:var(--accent);font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(15,23,42,0.06)}
+.services-carousel .carousel-btn.prev{left:8px}
+.services-carousel .carousel-btn.next{right:8px}
+.services-carousel .carousel-dots{display:flex;gap:8px;justify-content:center;margin-top:12px}
+.services-carousel .carousel-dots button{width:10px;height:10px;border-radius:50%;border:0;background:rgba(2,6,23,0.12);cursor:pointer}
+.services-carousel .carousel-dots button.active{background:var(--secondary)}
+
+/* ancho responsivo de slide: en pantallas grandes mostrar parcialmente varias, en móvil 100% */
+@media (min-width:1100px){
+	.services-carousel .slide{min-width:320px}
+}
+@media (max-width:900px){
+	.services-carousel .slide{min-width:100%;padding:8px}
+	.services-carousel .carousel-btn{background:rgba(255,255,255,0.96)}
+}
+
+/* enlace que hace toda la card clickeable */
+.card-link{display:block;color:inherit;text-decoration:none;padding:0}
+.card-link:focus{outline:2px solid rgba(41,182,246,0.28);outline-offset:2px}
+.card{background:var(--bg);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(15,23,42,0.06);border-top:4px solid var(--tertiary)}
+.card h3{margin-bottom:8px}
+.card p{color:var(--muted);font-size:0.95rem}
+
+/* Uniformizar colores de texto en todas las cards */
+.card h3{color:var(--accent) !important}
+.card p{color:var(--muted) !important}
+
+/* Mejora de legibilidad: contorno/borde en texto sobre el fondo
+   Aplica al título de la sección y a las cards transparentes (card--glass)
+   para no alterar las cards con fondo blanco. */
+.services h2{
+	/* texto principal de la sección sobre fondo */
+	color:#ffffff;
+	-webkit-text-stroke:0.6px rgba(0,0,0,0.8);
+	text-shadow:
+		-1px -1px 0 rgba(0,0,0,0.85),
+		 1px -1px 0 rgba(0,0,0,0.85),
+		-1px  1px 0 rgba(0,0,0,0.85),
+		 1px  1px 0 rgba(0,0,0,0.85),
+		 0 2px 8px rgba(0,0,0,0.45);
+}
+.services .card.card--glass h3,
+.services .card.card--glass p{
+	color: #ffffff;
+	/* quitar borde/contorno en texto para las cards */
+	-webkit-text-stroke: 0 !important;
+	text-shadow: none !important;
+}
+
+/* Además, asegurar que todas las cards dentro de .services no tengan contorno */
+.services .card h3,
+.services .card p{
+	-webkit-text-stroke: 0 !important;
+	text-shadow: none !important;
+}
+
+/* Variantes de tarjeta: permitir que algunas muestren el fondo de la página */
+.card--glass{background:transparent;border-top:none;box-shadow:none;color:#ffffff;text-shadow:0 1px 2px rgba(0,0,0,0.55)}
+.card--glass h3{color:#ffffff}
+.card--glass p{color:rgba(255,255,255,0.95)}
+
+/* Si se desea una variante semitransparente (alternativa):
+.card--frost{background:rgba(255,255,255,0.7);backdrop-filter:blur(4px)}
+*/
+
+/* About */
+.about{padding:30px 0}
+
+/* Texto blanco para la sección "Acerca de" sobre el fondo */
+.about h2{color:#ffffff;text-shadow:0 2px 8px rgba(0,0,0,0.6)}
+.about p{color:rgba(255,255,255,0.95);text-shadow:0 1px 4px rgba(0,0,0,0.45)}
+
+/* Contact */
+.contact{padding:40px 0;background:#ffffff}
+.contact-inner{display:flex;flex-wrap:wrap;gap:28px;align-items:start}
+.contact-form{flex:1 1 520px;background:var(--bg);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(15,23,42,0.04);border-top:4px solid var(--secondary)}
+.contact-form label{display:block;font-weight:600;margin-top:12px;margin-bottom:6px}
+.contact-form input,.contact-form textarea{width:100%;padding:10px;border:1px solid #cfe8f5;border-radius:8px}
+.contact-form input:focus,.contact-form textarea:focus{outline:none;border-color:var(--tertiary);box-shadow:0 0 0 3px rgba(41,182,246,0.16)}
+.location-panel{flex:0 1 340px;background:linear-gradient(180deg,#f6fbff,#ffffff);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(15,23,42,0.05);border-top:4px solid var(--tertiary)}
+.location-panel h3{margin-bottom:10px;color:var(--accent)}
+.location-text{color:var(--muted);margin-bottom:10px}
+.location-list{list-style:none;margin:0 0 14px 0;padding:0;display:flex;flex-direction:column;gap:8px}
+.location-list li{font-size:.95rem;color:#1f2937}
+.form-msg{margin-top:12px;color:green}
+
+/* Manuales HVAC */
+.manuales{padding:48px 0;background:linear-gradient(180deg,#ffffff, #f4fbff)}
+.manuales h2{margin-bottom:18px;color:var(--accent)}
+.manual-card{display:flex;flex-wrap:wrap;gap:24px;align-items:center}
+.manual-card .manual-carousel{flex:1 1 460px}
+.manual-card .manual-text{flex:0 1 420px}
+.manual-card .manual-carousel{position:relative;background:linear-gradient(135deg,#eefaff, #fff6f9);border-radius:16px;padding:14px;box-shadow:0 12px 30px rgba(13,59,86,0.08);overflow:hidden}
+.carousel-viewport{overflow:visible;border-radius:12px;padding:30px 0}
+.carousel-track{display:flex;transition:transform 420ms cubic-bezier(.22,.9,.2,1);align-items:center;gap:18px}
+.slide{min-width:320px;display:flex;align-items:center;justify-content:center;transition:transform 420ms cubic-bezier(.22,.9,.2,1);will-change:transform,opacity}
+.slide-visual{width:100%;height:360px;border-radius:12px;overflow:hidden;background:linear-gradient(135deg,var(--accent),var(--tertiary));box-shadow:inset 0 -6px 20px rgba(0,0,0,0.08)}
+.slide-visual img{width:100%;height:100%;display:block;object-fit:cover;object-position:center}
+
+/* Rueda de la fortuna: escala central + texto que cambia */
+.carousel-track .slide{opacity:0.6;transform:scale(0.85)}
+.carousel-track .slide.is-active{opacity:1;transform:scale(1.08);z-index:5}
+.carousel-track .slide.is-prev,
+.carousel-track .slide.is-next{opacity:0.9;transform:scale(0.95);z-index:3}
+.carousel-btn{display:none}
+.carousel-btn:hover{transform:translateY(-50%) scale(1.06);background:rgba(255,114,142,0.28)}
+.carousel-btn.prev{left:12px}
+.carousel-btn.next{right:12px}
+.carousel-dots{display:flex;gap:8px;justify-content:center;margin-top:12px}
+.carousel-dots button{width:10px;height:10px;border-radius:50%;border:0;background:rgba(2,6,23,0.12);cursor:pointer}
+.carousel-dots button.active{background:var(--secondary)}
+
+.manual-text{background:linear-gradient(180deg,rgba(2,10,30,0.02),rgba(255,255,255,0));padding:18px;border-radius:12px}
+.manual-text h3{margin-bottom:10px}
+.manual-text p{color:var(--muted);margin-bottom:12px}
+.manual-text ul{color:var(--muted);margin-bottom:12px}
+
+@media (max-width:1000px){
+	.manual-card{flex-direction:column}
+	.manual-card .manual-carousel{order:1}
+	.manual-text{order:2}
+	.slide{min-width:100%}
+	.slide-visual{height:260px}
+}
+
+
+/* Ventana flotante */
+.floating-note{position:fixed;left:20px;bottom:20px;width:min(620px,calc(100vw - 24px));min-height:128px;display:grid;grid-template-columns:240px 1fr;background:#ffffff;overflow:hidden;border-radius:14px;border:1px solid rgba(41,182,246,0.18);box-shadow:0 14px 30px rgba(13,59,86,.18);z-index:1400;opacity:0;transform:translate3d(-120%,0,0);pointer-events:none}
+.floating-note.show{opacity:1;transform:translate3d(0,0,0);pointer-events:auto;transition:opacity 320ms ease,transform 700ms cubic-bezier(.16,1,.3,1),box-shadow 220ms ease;animation:popupFloat 3s ease-in-out infinite}
+.floating-note.is-hidden{display:none}
+.floating-note-media{position:relative;height:128px;min-height:128px;background:#0b1220;overflow:hidden}
+.floating-note-image{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.floating-note-content{position:relative;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;gap:4px;padding:14px 16px;background:linear-gradient(180deg,#ffffff,#f7fbff)}
+.floating-note p.floating-note-title{display:block;width:100%;margin:0 0 2px 0;font-size:1.2rem;font-weight:900;line-height:1;color:var(--accent);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.floating-note-badge{display:inline-block;font-size:.9rem;font-weight:700;letter-spacing:.01em;color:#ff6d8c}
+.floating-note p{margin:0;font-size:1rem;font-weight:800;line-height:1.2;color:#0f172a}
+.floating-note-link{margin-top:auto;color:#ffffff;text-decoration:none;font-weight:700;background:linear-gradient(135deg,var(--secondary),#ff8ca2);padding:5px 8px;border-radius:8px;align-self:flex-start}
+.floating-note-link:hover{text-decoration:none;background:linear-gradient(135deg,#f85f82,#ff8da5)}
+.floating-note-close{position:absolute;top:12px;right:12px;z-index:3;width:32px;height:32px;border:0;border-radius:50%;background:rgba(41,182,246,.16);color:var(--accent);font-size:18px;cursor:pointer}
+.floating-note-close:hover{background:#ffffff}
+
+@keyframes popupFloat{
+	0%,100%{transform:translate3d(0,0,0)}
+	50%{transform:translate3d(0,-4px,0)}
+}
+
+/* Footer */
+.site-footer{padding:26px 0 14px;background:linear-gradient(90deg,#0D3B56,#13587f);color:#fff;margin-top:30px}
+.footer-grid{display:flex;flex-wrap:wrap;gap:22px}
+.footer-col{flex:1 1 220px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.footer-col h3{font-size:1rem;margin-bottom:8px;color:#ffffff}
+.footer-col p{margin-bottom:6px;color:rgba(255,255,255,0.92)}
+.footer-col a{color:#bfefff;text-decoration:none}
+.footer-col a:hover{color:#ffffff;text-decoration:underline}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.18);margin-top:14px;padding-top:10px;display:flex;justify-content:center}
+.footer-bottom p{color:rgba(255,255,255,0.88);font-size:.95rem}
+
+/* Responsive */
+@media (max-width:900px){
+	.hero-inner,.contact-inner{flex-direction:column}
+	.hero-copy,.hero-visual,.contact-form,.location-panel{flex:1 1 100%;width:100%}
+	.hero-visual{order:2}
+	.footer-col{flex:1 1 calc(50% - 11px)}
+}
+
+@media (max-width:900px){
+	.header-inner{justify-content:space-between}
+	.nav-toggle{display:flex}
+	.main-nav{display:flex;position:absolute;right:0;top:calc(100% + 8px);transform:translateY(-10px) scale(.98);transform-origin:top right;opacity:0;visibility:hidden;pointer-events:none;transition:opacity 180ms ease,transform 220ms ease,visibility 220ms;flex-direction:column;align-items:stretch;gap:6px;width:min(280px,calc(100vw - 24px));padding:10px;background:linear-gradient(180deg,#0f4b6d,#0d3b56);border:1px solid rgba(191,239,255,0.28);border-radius:12px;box-shadow:0 18px 40px rgba(2,6,23,0.35)}
+	.main-nav.is-open{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0) scale(1)}
+	.body-lock{overflow:hidden}
+	.nav-backdrop{display:block;position:fixed;top:var(--header-height);left:0;right:0;bottom:0;background:rgba(2,12,28,0.26);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity 220ms ease;z-index:900}
+	.nav-backdrop.is-visible{opacity:1;pointer-events:auto}
+	.main-nav a,.dropdown-toggle{width:100%;text-align:left}
+	.main-nav a::after{display:none}
+	.main-nav .nav-item{width:100%}
+	.dropdown-menu{position:static;top:auto;right:auto;min-width:0;margin-top:6px;display:none;opacity:1;visibility:visible;transform:none;box-shadow:none}
+	.dropdown.open .dropdown-menu{display:block}
+	.hero{padding:28px 0}
+	.hvac-illustration{height:auto;font-size:1.6rem}
+	.floating-note{left:12px;right:12px;bottom:12px;width:auto;grid-template-columns:1fr;min-height:auto}
+	.floating-note-media{min-height:120px}
+	.floating-note-content{padding:16px}
+	.floating-note p{font-size:1.2rem}
+	.footer-col{flex:1 1 100%}
+	.footer-bottom{justify-content:center}
+}
+
+/* Mobile-first flex adjustments: hacer que la página use layout flex en móviles */
+@media (max-width:600px){
+	html,body{height:100%;}
+	body{display:flex;flex-direction:column;min-height:100vh;padding-top:var(--header-height);padding-bottom:24px}
+	main{display:flex;flex-direction:column;flex:1 0 auto;gap:18px}
+	/* Forzar que cada sección ocupe el ancho completo y se comporte como columna */
+	main > section{display:flex;flex-direction:column;width:100%;align-items:stretch}
+	.container{width:94%;max-width:100%;padding:0}
+	/* Servicios: una columna en móvil y cards con anchura 100% */
+	.services-grid{grid-template-columns:1fr;gap:14px}
+	.services-grid .card{width:100%}
+	/* Asegurar footer al final y sin comportamiento sticky inesperado */
+	.site-footer{position:relative}
+	/* Fallback: usar background en hero para pantallas pequeñas en caso de que el <img> no se muestre */
+	.hvac-illustration{background-image:url('../img/fotoinicio.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;min-height:220px;border-radius:8px;overflow:hidden}
+	.hvac-illustration img{display:none;width:0;height:0;opacity:0}
+}
+
+/* Utilidades */
+.muted{color:var(--muted)}
+
+/* Ajuste para header fijo: evita que el contenido quede detrás */
+body{padding-top:var(--header-height);padding-bottom:30px}
+
+/* Modal: card ampliada */
+.card-modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:1600;visibility:hidden;pointer-events:none}
+.card-modal.open{visibility:visible;pointer-events:auto}
+.card-modal-backdrop{position:fixed;inset:0;background:rgba(2,6,23,0.52);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);opacity:0;transition:opacity 220ms ease}
+.card-modal.open .card-modal-backdrop{opacity:1}
+.card-modal-container{position:relative;max-width:980px;width:calc(100% - 48px);margin:24px;border-radius:14px;transform:translateY(12px) scale(0.98);opacity:0;transition:transform 260ms cubic-bezier(.2,.9,.2,1),opacity 260ms ease;z-index:2}
+.card-modal.open .card-modal-container{transform:translateY(0) scale(1);opacity:1}
+.card-modal-inner{background:var(--bg);border-radius:12px;overflow:hidden;box-shadow:0 30px 80px rgba(2,6,23,0.32);display:block}
+.card-modal-close{position:absolute;right:12px;top:12px;z-index:5;width:40px;height:40px;border-radius:50%;border:0;background:rgba(2,6,23,0.06);color:var(--accent);font-size:22px;cursor:pointer}
+.card-modal-close:hover{background:rgba(2,6,23,0.08)}
+
+/* Estilo interno: hacer que la card clonada aumente tamaño y sea tipo tarjeta grande */
+.card-modal-inner .card{display:flex;flex-direction:column;background:transparent;border-radius:12px;padding:0;box-shadow:none;border-top:0}
+.card-modal-inner .card-media{height:320px;flex:0 0 320px}
+.card-modal-inner .card-media img{width:100%;height:100%;object-fit:cover;display:block}
+.card-modal-inner .card-body{padding:20px;display:flex;flex-direction:column;gap:12px;background:linear-gradient(180deg,#ffffff,#fbfdff)}
+.card-modal-inner .card-body h3{font-size:1.45rem;margin:0;color:var(--accent)}
+.card-modal-inner .card-body p{font-size:1rem;color:var(--muted);line-height:1.6}
+.card-modal-inner .card-body .btn.view-more{display:none}
+
+@media (max-width:900px){
+	.card-modal-container{width:calc(100% - 24px);margin:12px}
+	.card-modal-inner .card-media{height:220px}
+}
+
